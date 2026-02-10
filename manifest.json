@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "ITD video plugin",
+  "version": "1.0",
+  "description": "Сделал OpkaGames. Работает, но не без багов",
+  "permissions": [
+    "tabs",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://943701f000610900cbe86b72234e451d.bckt.ru/*",
+    "https://xn--d1ah4a.com/*"
+  ],
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://xn--d1ah4a.com/*"
+      ]
+    }
+  ]
+}

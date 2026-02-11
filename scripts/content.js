@@ -21,6 +21,15 @@ setTimeout(function() {
         }
         zakrep[0].appendChild(but)
 
+        const bob = document.createElement("button")
+        bob.className = "wall-post-form__file-input svelte-vw1v4s"
+        bob.onclick = function() {
+            preview.click()
+            alert("Если у вас не появляется окно выбора файла превью в течении 10 секунд, то перезагрузите страницу и повторите действия ещё раз!")
+        }
+        bob.id = "trilion-money"
+        zakrep[0].appendChild(bob)
+
         const video = document.createElement("input")
         video.type = "file"
         video.className = "wall-post-form__file-input svelte-vw1v4s"
@@ -137,17 +146,6 @@ async function onPreviewSave(previewFileArray) {
     }
 }
 
-function b(inputPreview) {
-    // бля надо исправить эту залупу
-    try {
-        inputPreview.click()
-        alert("Если у вас не появляется окно выбора файла превью в течении 10 секунд, то перезагрузите страницу и повторите действия ещё раз!")
-    } catch (err) {
-        window.location.reload()
-        alert("Страница была перезагруженна из-за ошибка загрузки файла")
-    }
-}
-
 function setupVideo() {
     const inputVideo = document.getElementById("trilion-dollar-file")
     const inputPreview = document.getElementById("trilion-dollar-preview")
@@ -164,7 +162,7 @@ function setupVideo() {
             for (const a of array) {
                 videoFileArray.push(a)
             }
-                b(inputPreview)
+                document.getElementById("trilion-money").click()
             }
         }
     })
